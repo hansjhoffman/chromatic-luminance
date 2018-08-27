@@ -1,0 +1,18 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+  yarn: true
+notifications:
+  email: false
+node_js:
+  - '10'
+  - '9'
+  - '8'
+  - '7'
+  - '6'
+  - '5'
+jobs:
+  include:
+    - stage: test
+      script: yarn flow && yarn test
