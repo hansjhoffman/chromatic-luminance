@@ -11,7 +11,6 @@ node_js:
   - '8'
   - '7'
   - '6'
-  - '5'
 jobs:
   include:
     - stage: test
