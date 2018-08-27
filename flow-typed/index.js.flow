@@ -1,4 +1,0 @@
-// @flow
-declare module 'chromatic-luminance' {
-  declare export default function isDark(color: string): boolean;
-}

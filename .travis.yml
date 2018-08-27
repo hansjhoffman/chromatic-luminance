@@ -13,5 +13,7 @@ node_js:
   - '6'
 jobs:
   include:
+    - stage: format
+      script: yarn lint && yarn format && yarn flow
     - stage: test
-      script: yarn flow && yarn test
+      script: yarn test

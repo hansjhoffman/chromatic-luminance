@@ -1,6 +1,6 @@
 {
   "name": "chromatic-luminance",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight (no dependencies) and fast color brightness detector built with Flow Types.",
   "main": "lib/index.js",
   "author": "Hans Hoffman",
@@ -10,15 +10,21 @@
     "url": "https://github.com/hansjhoffman/chromatic-luminance.git"
   },
   "scripts": {
-    "build": "babel src -d lib/ && cp flow-typed/* lib/",
+    "build": "babel src/ -d lib/ && yarn copy-flow-source",
+    "copy-flow-source": "for f in `grep --include=\\*.js -rlw src/ -e '^//\\s*@flow'`; do cp ${f} lib/${f#*/}.flow; done;",
     "format": "prettier --write './**/*.js'",
     "flow": "flow",
-    "test": "jest --coverage"
+    "lint": "eslint .",
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.4.0",
+    "eslint-plugin-flowtype": "^2.50.0",
     "flow-bin": "^0.79.1",
     "jest": "^23.5.0",
     "prettier": "^1.14.2"
