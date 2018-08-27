@@ -10,7 +10,7 @@
     "url": "https://github.com/hansjhoffman/chromatic-luminance.git"
   },
   "scripts": {
-    "build": "babel src/ -d lib/ && npm copy-flow-source",
+    "build": "babel src/ -d lib/ && yarn copy-flow-source",
     "copy-flow-source": "for f in `grep --include=\\*.js -rlw src/ -e '^//\\s*@flow'`; do cp ${f} lib/${f#*/}.flow; done;",
     "format": "prettier --write './**/*.js'",
     "flow": "flow",

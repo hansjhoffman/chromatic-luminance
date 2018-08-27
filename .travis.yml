@@ -13,6 +13,6 @@ node_js:
 jobs:
   include:
     - stage: format
-      script: npm run lint && npm run format && npm run flow
+      script: yarn lint && yarn format && yarn flow
     - stage: test
-      script: npm run test
+      script: yarn test
